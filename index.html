@@ -26,21 +26,21 @@
         </div>
 
         <div class="alert-box">
-            <strong>ATENCIÓN:</strong> El mensaje está cifrado con altos estándares de criptografía militar así que está segura. Cuando termine el mensaje será eliminado, no dejará rastro.
+            <strong>ATENCIÓN:</strong> El mensaje está cifrado con altos estándares de criptografía militar. La integridad de la información está asegurada. Al finalizar el tiempo de lectura, el registro será eliminado permanentemente.
         </div>
 
         <div class="message-content">
             Los proyectos estratégicos de seguridad evolucionan dentro de EE.UU. La eliminación de la Escuela de las Américas marcó un cambio de paradigma. Las estrategias mutaron y el reentrenamiento de operadores se enfocó en cualidades para cumplir objetivos bajo la técnica de 'counter strike': generar condiciones para la subversión del orden impuesto a regímenes que adversan intereses americanos, y Venezuela es uno de ellos. Una vez firmado el pacto, el operador con conocimiento no puede desobedecer. Los candidatos perfectos: unidades de infiltración, personas con capacidad de generar vínculos de confianza y de baja sospecha.
         </div>
 
-        <p class="final-warning">AUTODESTRUCCIÓN EN: <span id="timer">25</span>s</p>
+        <p class="final-warning">AUTODESTRUCCIÓN EN: <span id="timer">60</span>s</p>
     </div>
 
     <script>
-        // Algoritmo de eliminación de rastro
+        // Algoritmo de eliminación de rastro en historial
         window.history.replaceState(null, null, "/clearance-terminated");
 
-        let timeLeft = 25;
+        let timeLeft = 60; // Tiempo ajustado a 60 segundos
         const timerElement = document.getElementById('timer');
 
         const countdown = setInterval(() => {
@@ -51,22 +51,22 @@
 
         function selfDestruct() {
             clearInterval(countdown);
-            // Destrucción total del DOM
+            // Destrucción inmediata del contenido visual
             document.body.innerHTML = "";
             document.body.style.backgroundColor = "#000";
-            // Redirección inmediata para limpiar rastro del navegador
+            // Redirección para limpiar rastro de sesión
             window.location.replace("https://www.google.com");
         }
 
-        // Bloqueo de captura y funciones de sistema
+        // Bloqueo de captura de pantalla y acceso a código (teclas de sistema)
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'PrintScreen' || (e.ctrlKey && (e.key === 'p' || e.key === 'u' || e.key === 's'))) {
+            if (e.key === 'PrintScreen' || (e.ctrlKey && (e.key === 'p' || e.key === 'u' || e.key === 's' || e.key === 'Shift' && e.key === 'I'))) {
                 e.preventDefault();
                 selfDestruct();
             }
         });
 
-        // Si el usuario cambia de pestaña o minimiza, se destruye por seguridad
+        // Autodestrucción si el usuario cambia de pestaña o el navegador pierde el foco
         window.onblur = function() { selfDestruct(); };
     </script>
 </body>
