@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIRECTIVA - ALTA SEGURIDAD</title>
+    <style>
+        body {
+            background-color: #0d1117; /* Dark background */
+            color: #c9d1d9; /* Light text */
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevent scrolling */
+            position: relative;
+        }
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for text readability */
+            z-index: 1;
+        }
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            padding: 30px;
+            border: 1px solid #30363d; /* Darker border */
+            background: #161b22; /* Slightly lighter dark background for container */
+            box-shadow: 0 0 20px rgba(0, 100, 200, 0.3); /* Blue glowing shadow */
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        img.logo {
+            width: 100px;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 5px rgba(0, 100, 200, 0.5));
+        }
+        .header-title {
+            font-size: 1.8rem;
+            color: #58a6ff; /* Lighter blue for title */
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .alert-box {
+            background-color: #2b3b4d; /* Slightly different dark blue for alert */
+            border-left: 5px solid #ffcc00; /* Yellow alert border */
+            padding: 15px;
+            margin-bottom: 25px;
+            text-align: left;
+            font-size: 0.95rem;
+            color: #ffcc00; /* Yellow text for alert */
+        }
+        .message-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-align: justify;
+            margin-bottom: 30px;
+            color: #c9d1d9;
+        }
+        .final-warning {
+            color: #d33a3a; /* Red for final warning */
+            font-size: 0.9rem;
+            margin-top: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .link-placeholder {
+            color: #555;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        /* ----- Imagenes de Fondo Aleatorias ----- */
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1; /* Very subtle */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: grayscale(100%);
+            z-index: 0;
+            animation: imageTransition 30s infinite alternate; /* Smooth transition */
+        }
+
+        @keyframes imageTransition {
+            0% { background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ea/Cryptography_illustration.jpg'); } /* Criptografía */
+            25% { background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e6/FBI_Headquarters.jpg'); } /* Edificio de seguridad (simulado) */
+            50% { background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/a2/President_Nicolas_Maduro_addresses_the_UN_Human_Rights_Council_in_Geneva%2C_September_2017_%282%29.jpg'); } /* Parlamento (simulado VZLA) */
+            75% { background-image: url('https://upload.wikimedia.org/wikipedia/commons/b/b3/US_Army_Special_Forces_in_training.jpg'); } /* Entrenamiento militar */
+            100% { background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ea/Cryptography_illustration.jpg'); }
+        }
+
+        /* ----- Intento de Bloqueo de Capturas/Grabaciones ----- */
+        /* Pseudo-elemento para "oscurecer" si se intenta capturar (limitado) */
+        @media screen and (min-resolution: 1dppx) { /* Heurística para dispositivos de alta resolución */
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.9); /* Oscurece la pantalla */
+                z-index: 10000;
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.1s ease-out;
+            }
+        }
+        /* Clase para activar el oscurecimiento al detectar una posible captura (muy limitado) */
+        .no-screenshot::before {
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <div class="background-image"></div>
+    <div class="background-overlay"></div>
+
+    <div class="container" id="content">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Seal_of_the_Central_Intelligence_Agency.svg/512px-Seal_of_the_Central_Intelligence_Agency.svg.png" alt="CIA SEAL" class="logo">
+        
+        <h1 class="header-title">DIRECTIVA - ALTA SEGURIDAD</h1>
+
+        <div class="alert-box">
+            <span style="font-weight: bold;">ATENCIÓN:</span> Este mensaje está cifrado con altos estándares de criptografía militar, así que está segura. Cuando termine, el mensaje será eliminado y no dejará rastro.
+        </div>
+
+        <div class="message-content">
+            Los proyectos estratégicos de seguridad evolucionan dentro de EE.UU. La eliminación de la Escuela de las Américas marcó un cambio de paradigma. Las estrategias mutaron y el reentrenamiento de operadores se enfocó en cualidades para cumplir objetivos bajo la técnica de 'counter strike': generar condiciones para la subversión del orden impuesto a regímenes que adversan intereses americanos, y Venezuela es uno de ellos. Una vez firmado el pacto, el operador con conocimiento no puede desobedecer. Los candidatos perfectos: unidades de infiltración, personas con capacidad de generar vínculos de confianza y de baja sospecha.
+        </div>
+
+        <p class="final-warning">Este mensaje se autodestruirá en <span id="timer">25</span> segundos. No dejará rastro.</p>
+        <p class="link-placeholder">[ ENLACE NULO. 15. ARCHIVO ELIMINADO. ]</p>
+        <p class="link-placeholder">[ ENLACE NULO. 444. ARCHIVO ELIMINADO. ]</p>
+    </div>
+
+    <script>
+        // --- Bloqueo de Capturas (Disuasorio y Limitado) ---
+        // Deshabilitar la tecla PrintScreen/PrtSc (funcionalidad limitada en navegadores web)
+        document.addEventListener('keyup', (e) => {
+            if (e.key === 'PrintScreen') {
+                document.body.classList.add('no-screenshot'); // Oscurece la pantalla
+                setTimeout(() => {
+                    document.body.classList.remove('no-screenshot');
+                    alert('Intento de captura detectado. Esta acción está restringida.');
+                }, 100); // Oscurece brevemente
+                return false;
+            }
+        });
+
+        // Intentar detectar la apertura de las herramientas de desarrollador (puede ser sorteado)
+        const devtools = /./;
+        devtools.toString = function() {
+            this.opened = true;
+            // Opcional: Si se detecta devtools, autodestruir más rápido
+            // destroyContent();
+            return '';
+        };
+        setInterval(() => {
+            console.log(devtools);
+            if (devtools.opened) {
+                // Si devtools se abre, oscurecer la pantalla o destruir contenido
+                document.body.classList.add('no-screenshot');
+                // destroyContent(); // Descomentar para autodestrucción inmediata al abrir devtools
+            }
+        }, 1000);
+
+        // --- Autodestrucción del Mensaje ---
+        window.history.replaceState(null, null, "/protocol-intercept-secure"); // Cambia la URL
+        let timeLeft = 25; // Tiempo inicial
+        const timerElement = document.getElementById('timer');
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                destroyContent();
+            }
+        }, 1000);
+
+        function destroyContent() {
+            clearInterval(countdown);
+            document.body.innerHTML = "<div style='color: #444; margin-top: 45vh; text-align: center; font-family: \"Courier New\", monospace;'>[ ACCESO DENEGADO - ENLACE AUTODESTRUIDO ]</div>";
+            
+            // Retraso para la redirección, dando tiempo a ver el mensaje de destrucción
+            setTimeout(() => {
+                // Redirige a Google como un "destino neutral"
+                window.location.replace("https://www.google.com");
+            }, 3000); // Redirige después de 3 segundos
+        }
+
+        // Intento de autodestrucción si el usuario cierra la pestaña o sale
+        window.onbeforeunload = function() {
+            // Este evento se dispara antes de que el usuario abandone la página
+            // No podemos controlar la redirección aquí de forma asíncrona,
+            // pero podemos limpiar el DOM y el historial antes de salir.
+            history.replaceState(null, null, "/session-terminated");
+            document.body.innerHTML = ""; // Limpia el contenido
+        };
+
+        // Bloquea clic derecho para inspeccionar elemento
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Bloquea algunas combinaciones de teclado comunes para devtools (no infalible)
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) return false; // F12
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Ctrl+Shift+I
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; // Ctrl+Shift+J
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ctrl+U (Ver código fuente)
+        }
+    </script>
+</body>
+</html>
+```http://googleusercontent.com/image_generation_content/3
